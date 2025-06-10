@@ -1,0 +1,29 @@
+-- problema 1
+db.pokedex2.find()
+
+--problema 2
+db.pokedex2.find({num:25})
+
+--problema 3
+db.pokedex2.find({num:25},{name:1,_id:0})
+
+--problema 4
+db.pokedex2.find()
+
+
+-- problema 7
+db.pokedex2.countDocuments({name:/or/i},{_id:0,name:1,types:1,specie:1})
+
+-- problema 8
+db.pokedex2.countDocuments(
+    {$and:[
+        {$or:[
+            {name:/or/i},
+            {name:/an/i}
+        ]
+        },
+        {num:{$lt:400}}
+    ]}
+    {_id:0,name:1,types:1,specie:1}
+)
+
